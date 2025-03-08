@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-box {
+            width: 250px;
+            height: 250px;
+            border: 2px solid red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px; /* MAS MALAYO ANG BUTTONS */
+            width: 100%;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+            position: relative;
+        }
+        .thank-you {
+            display: none;
+            margin-top: 20px;
+        }
+        .thank-you img {
+            width: 250px;
+            height: auto;
+            border: 2px solid green;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Form -->
+    <div class="container" id="love-form">
+        <div class="image-box">
+            <img src="img/pusa.png" alt="Your Image Here">
+        </div>
+        <div class="question">Mahal mo ba ako? ❤️</div>
+        <div class="buttons">
+            <button class="yes" onclick="showThankYou()">Yes</button>
+            <button class="no" id="noButton" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+
+    <!-- Thank You Form -->
+    <div class="thank-you" id="thank-you-section">
+        <h2>Mahal na Mahal din kita! ❤️</h2>
+        <img src="img/pusa1.jpg" alt="Thank You Image">
+    </div>
+
+    <script>
+        function showThankYou() {
+            document.getElementById('love-form').style.display = 'none';
+            document.getElementById('thank-you-section').style.display = 'block';
+        }
+
+        function moveNoButton() {
+            let noButton = document.getElementById('noButton');
+            let maxX = window.innerWidth - 200; 
+            let maxY = window.innerHeight - 100;
+
+            let x = Math.random() * maxX; 
+            let y = Math.random() * maxY;
+
+            noButton.style.position = "absolute";
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+    </script>
+
+</body>
+</html>
